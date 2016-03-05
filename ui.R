@@ -3,7 +3,7 @@ library(DT)
 library(datasets)
 shinyUI(navbarPage("",
                    
-                   tabPanel("Simple Tooth Growth Shiny Apps", 
+                   tabPanel("Tooth Growth Comparison Orange Juice (OJ) vs. Ascorbic Acid(VC) Apps", 
                             
                             mainPanel( 
                                     
@@ -11,7 +11,7 @@ shinyUI(navbarPage("",
                                             
                                             
                                             
-                                            radioButtons("radio", label = h3("Select daily dose level:"), choices = (unique(ToothGrowth$dose)), selected = NULL )
+                                            radioButtons("radio", label = h3("Select daily dose level of Vitamin C:"), choices = (unique(ToothGrowth$dose)), selected = NULL )
                                             
                                     ),
                                     
@@ -35,9 +35,12 @@ shinyUI(navbarPage("",
                                             tabsetPanel(
                                                     
                                                     tabPanel(
-                                                            h4('Prediction Growth', align ="center",style = "color:blue"),
-                                                            h4('Daily dose selected'),
-                                                            verbatimTextOutput("input$radio")
+                                                            h4('Prediction Tooth Growth', align ="center",style = "color:blue"),
+                                                            h4('Daily dose level of Vitamin C selected(mg)'),
+                                                            verbatimTextOutput("inputValue"),
+                                                            
+                                                            h4('Estimated Tooth Growth by OJ vs. VC)'),
+                                                            verbatimTextOutput("outputVC")
                                                             
                                                             
                                                             
@@ -45,7 +48,7 @@ shinyUI(navbarPage("",
                                                     
                                                     tabPanel(
                                                             h4('About This Shiny App', align ="center",style = "color:blue"),
-                                                            htmlOutput("readme1")
+                                                            htmlOutput("readme")
                                                             
                                                             
                                                     )
